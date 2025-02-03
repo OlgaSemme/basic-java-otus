@@ -1,7 +1,5 @@
 package ru.otus.java.basic.lesson1;
 
-import java.util.Arrays;
-
 public class App3 {
     public static void main(String[] args) {
         System.out.println(sumOfPositiveElements(new int[][]{{6, -7}, {1, 5}, {9, 2}}));
