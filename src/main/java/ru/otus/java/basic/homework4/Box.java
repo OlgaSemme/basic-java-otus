@@ -41,9 +41,9 @@ public class Box {
         if (!open) {
             System.out.println("Откройте коробку");
         } else if (!empty) {
-            System.out.println("В коробке есть предмет");
+            System.out.println("В коробке уже есть предмет");
         } else {
-            System.out.println("Предмет в коробке");
+            System.out.println("Предмет помещен в коробку");
             empty = false;
         }
 
