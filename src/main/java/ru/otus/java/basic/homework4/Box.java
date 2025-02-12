@@ -40,6 +40,8 @@ public class Box {
     public void fill() {
         if (!open) {
             System.out.println("Откройте коробку");
+        } else if (!empty) {
+            System.out.println("В коробке есть предмет");
         } else {
             System.out.println("Предмет в коробке");
             empty = false;
