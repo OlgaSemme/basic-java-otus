@@ -32,7 +32,7 @@ public class Animal {
         int t = distance / runSpeed;
         if (distance > endurance) {
             //endurance = 0;
-            System.out.println(type + " " + name + " пробежала " + (endurance) + " метров и устала");
+            System.out.println(type + " " + name + " пробежала " + endurance + " метров и устала");
             return -1;
         } else {
             endurance -= distance;
@@ -44,7 +44,7 @@ public class Animal {
     public int swim(int distance) {
         int t = distance / swimSpeed;
         if (distance * fatigueRate >= endurance) {
-            System.out.println(type + " " + name + " проплыла " + (endurance / fatigueRate) + " метров и устала");
+            System.out.println(type + " " + name + " проплыла " + endurance / fatigueRate + " метров и устала");
             endurance -= distance * fatigueRate;
             return -1;
         } else {
