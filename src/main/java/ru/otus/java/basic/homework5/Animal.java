@@ -8,25 +8,6 @@ public class Animal {
     int endurance;
     int fatigueRate;
 
-    public int getEndurance() {
-        return endurance;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public int getFatigueRate() {
-        return fatigueRate;
-    }
-
-    public int getSwimSpeed() {
-        return swimSpeed;
-    }
-
-    public int getRunSpeed() {
-        return runSpeed;
-    }
 
     public int run(int distance) {
         int t = distance / runSpeed;
