@@ -14,6 +14,9 @@ public class Cat {
     public int getAppetite() {
         return appetite;
     }
+    public String getName() {
+        return name;
+    }
 
     public void catEats(Plate plate) {
         if (fullness) {
