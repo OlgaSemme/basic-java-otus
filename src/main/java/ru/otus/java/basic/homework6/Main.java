@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) {
         Plate plate = new Plate(20);
         Cat[] cats = {new Cat("Рыжик", 1),
-                new Cat("Барсик", 5),
+                new Cat("Барсик", -5),
                 new Cat("Пушок", -4),
                 new Cat("Васька", 6)
         };

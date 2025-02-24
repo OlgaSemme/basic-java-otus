@@ -11,9 +11,7 @@ public class Plate {
     }
 
     public void addToPlate(int amount) {
-        if (maxVolume < 0) {
-            System.out.println("Нeвозможно пополнить тарелку");
-        } else if (currentVolume + amount >= maxVolume) {
+       if (currentVolume + amount >= maxVolume) {
             System.out.println("Тарелка заполнена");
             currentVolume = maxVolume;
         } else {
