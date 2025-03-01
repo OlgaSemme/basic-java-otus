@@ -5,6 +5,9 @@ public class Car implements Transport {
 
 
     public Car(int petrolAmount) {
+        if (petrolAmount <= 0) {
+            System.out.println("Количество топлива должно быть положительным!");
+        }
         this.petrolAmount = petrolAmount;
     }
 

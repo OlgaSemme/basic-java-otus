@@ -4,6 +4,9 @@ public class Horse implements Transport {
     private int stamina;
 
     public Horse(int stamina) {
+        if (stamina <= 0) {
+            System.out.println("Выносливость должна быть положительной!");
+        }
         this.stamina = stamina;
     }
 

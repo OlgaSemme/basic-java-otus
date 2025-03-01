@@ -5,6 +5,9 @@ public class ATV implements Transport {
 
 
     public ATV(int petrolAmount) {
+        if (petrolAmount <= 0) {
+            System.out.println("Количество топлива должно быть положительным!");
+        }
         this.petrolAmount = petrolAmount;
     }
 
