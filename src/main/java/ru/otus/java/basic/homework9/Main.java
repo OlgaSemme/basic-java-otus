@@ -2,12 +2,13 @@ package ru.otus.java.basic.homework9;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
 
         arrayMinMax(0, 4);
-        System.out.println(arraySum(new ArrayList<>(Arrays.asList(1, 2))));
+        System.out.println(arraySum(new ArrayList<>(Arrays.asList(1, 2, 9))));
         ArrayList<Integer> list = new ArrayList<>(Arrays.asList(8, 6, 7));
         arrayGhange(5, list);
         arrayIncrease(4, list);
@@ -35,9 +36,12 @@ public class Main {
 
     public static int arraySum(ArrayList<Integer> list) {
         int sum = 0;
-        for (int i = 0; i < list.size(); i++) {
-            if (list.get(i) > 5) {
-                sum += list.get(i);
+        // for (int i = 0; i < list.size(); i++) {
+        //     if (list.get(i) > 5) {
+        //         sum += list.get(i);
+        for (int num : list) {
+            if (num > 5) {
+                sum += num;
             }
         }
         return sum;
@@ -60,7 +64,7 @@ public class Main {
         System.out.println(list);
     }
 
-    public static ArrayList arrayName(ArrayList<Employee> list) {
+    public static List arrayName(List<Employee> list) {
         ArrayList<String> names = new ArrayList<>();
         for (int i = 0; i < list.size(); i++) {
             String name = list.get(i).getName();
@@ -69,11 +73,11 @@ public class Main {
         return (names);
     }
 
-    public static ArrayList<Employee> arrayMinAge(int minAge, ArrayList<Employee> list) {
-        ArrayList<Employee> minAgeList = new ArrayList<>();
+    public static List<String> arrayMinAge(int minAge, List<Employee> list) {
+        List<String> minAgeList = new ArrayList<>();
         for (int i = 0; i < list.size(); i++) {
             if (list.get(i).getAge() >= minAge) {
-                minAgeList.add(list.get(i));
+                minAgeList.add(list.get(i).getName());
             }
         }
         return (minAgeList);
