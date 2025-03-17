@@ -10,6 +10,6 @@ public class Main {
         myPhones.add("79213945689", "Иванова Ольга Ивановна");
         System.out.println(myPhones.numbersAndNames.entrySet());
         myPhones.containsPhoneNumber("79213456789");
-        myPhones. find("Иванова Ольга Ивановна");
+        myPhones. find("Иванов Петр Петрович");
     }
 }
