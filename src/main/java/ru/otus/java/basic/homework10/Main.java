@@ -4,12 +4,12 @@ public class Main {
     public static void main(String[] args) {
         PhoneBook myPhones = new PhoneBook() ;
 
-        myPhones.add("79213456789", "Иванова Ольга Ивановна");
-        myPhones.add("79213456689", "Иванова Ольга Ивановна");
-        myPhones.add("792136456689", "Иванов Петр Петрович");
-        myPhones.add("79213945689", "Иванова Ольга Ивановна");
+        myPhones.add("Иванова Ольга Ивановна", "89213568978");
+        myPhones.add("Иванова Ольга Ивановна", "89213568979");
+        myPhones.add("Иванова Ольга Ивановна", "89219728978");
+        myPhones.add("Петрова Мария Степановна", "89219928978");
         System.out.println(myPhones.numbersAndNames.entrySet());
-        myPhones.containsPhoneNumber("79213456789");
-        myPhones. find("Иванов Петр Петрович");
+        myPhones.containsPhoneNumber("89213568978");
+        myPhones.find("Иванов Петр Петрович");
     }
 }
