@@ -2,10 +2,10 @@ package ru.otus.java.basic.homework11;
 
 public class Person {
     String name;
-    Position position;
+    ru.otus.java.basic.homework11.Position position;
     Long id;
 
-    public Person(Long id, Position position, String name) {
+    public Person(Long id, ru.otus.java.basic.homework11.Position position, String name) {
         this.id = id;
         this.position = position;
         this.name = name;
@@ -23,4 +23,4 @@ public class Person {
         return name;
     }
 
-   }
+}
