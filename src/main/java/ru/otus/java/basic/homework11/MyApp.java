@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 import static ru.otus.java.basic.homework11.Position.*;
 
-public class Main {
+public class MyApp {
     public static void main(String[] args) {
         Person kate = new Person(23555L, MANAGER, "Kate Smith");
         Person bob = new Person(23535L, DIRECTOR, "Bob Smith");
