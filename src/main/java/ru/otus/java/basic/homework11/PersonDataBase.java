@@ -1,9 +1,6 @@
 package ru.otus.java.basic.homework11;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 import static ru.otus.java.basic.homework11.Position.*;
 
@@ -11,6 +8,8 @@ public class PersonDataBase {
     Person foundPerson;
     ArrayList<Person> base = new ArrayList<>();
     HashMap<Long, Person> personMap = new HashMap<>();
+    HashMap<Position, Boolean> isManagerMap = new HashMap<>();
+
 
     public PersonDataBase(ArrayList<Person> base) {
         this.base = base;
@@ -18,20 +17,15 @@ public class PersonDataBase {
             Person person = base.get(i);
             personMap.put(person.getId(), person);
         }
-    }
 
+        isManagerMap.put(MANAGER, true);
+        isManagerMap.put(DIRECTOR, true);
+        isManagerMap.put(BRANCH_DIRECTOR, true);
+        isManagerMap.put(SENIOR_MANAGER, true);
+
+    }
 
     public Person findById(Long id) {
-        for (int i = 0; i < base.size(); i++) {
-            Person test = base.get(i);
-            if (Objects.equals(test.getId(), id)) {
-                return test;
-            }
-        }
-        return null;
-    }
-
-    public Person findByIdMap(Long id) {
         foundPerson = personMap.get(id);
         if (foundPerson == null) {
             System.out.println("Сотрудник" + id + " отсутствует.");
@@ -40,37 +34,27 @@ public class PersonDataBase {
     }
 
     public void add(Person person) {
-
-        base.add(person);
         personMap.put(person.getId(), person);
 
     }
 
 
     public boolean isManager(Person person) {
-        if (person.getPosition() == MANAGER || person.getPosition() == DIRECTOR || person.getPosition() == BRANCH_DIRECTOR || person.getPosition() == SENIOR_MANAGER) {
+        if (isManagerMap.get(person.getPosition()) != null) {
             return true;
         }
         return false;
     }
+//тут O(N) но быстрое , тк идет перебор по всем статусам, лучше также использовать хэш коллекции.
+// Тут подумать какой будет лучше проверить именно наличие.
+
 
     public boolean isEmployee(Long id) {
-        for (int i = 0; i < base.size(); i++) {
-            Person test = base.get(i);
-            if (Objects.equals(test.getId(), id)) {
-                if (test.getPosition() != MANAGER || test.getPosition() != DIRECTOR || test.getPosition() != BRANCH_DIRECTOR || test.getPosition() != SENIOR_MANAGER) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
-    public boolean isEmployeeMap(Long id) {
         foundPerson = personMap.get(id);
-        if (foundPerson.getPosition() != MANAGER || foundPerson.getPosition() != DIRECTOR || foundPerson.getPosition() != BRANCH_DIRECTOR || foundPerson.getPosition() != SENIOR_MANAGER) {
-            return true;
+        if (isManagerMap.get(foundPerson.getPosition()) != null ) {
+            return false;
         }
-        return false;
+        return true;
     }
+    //тот же момент + повтор кода - лучше вынести в метод если используется 2 и более раз
 }
