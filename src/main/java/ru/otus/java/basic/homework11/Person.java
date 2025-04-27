@@ -1,5 +1,7 @@
 package ru.otus.java.basic.homework11;
 
+import static ru.otus.java.basic.homework11.Position.*;
+
 public class Person {
     String name;
     ru.otus.java.basic.homework11.Position position;
@@ -23,4 +25,10 @@ public class Person {
         return name;
     }
 
+    public boolean isManager() {
+        if (position == MANAGER || position == DIRECTOR || position == BRANCH_DIRECTOR || position == SENIOR_MANAGER) {
+            return true;
+        }
+        return false;
+    }
 }

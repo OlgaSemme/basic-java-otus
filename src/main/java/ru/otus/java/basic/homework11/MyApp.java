@@ -14,11 +14,9 @@ public class MyApp {
         PersonDataBase myBase = new PersonDataBase(new ArrayList<>(Arrays.asList(kate, bob, lily)));
 
         System.out.println(myBase.findById(23555L).getName());
-        System.out.println(myBase.findByIdMap(23555L).getName());
         myBase.add(mark);
         System.out.println(myBase.findById(97535L).getName());
         System.out.println(myBase.isManager(lily));
-        System.out.println(myBase.isEmployee(27535L));
-        System.out.println(myBase.isEmployeeMap(27535L));
+        System.out.println(myBase.isEmployee(97535L));
     }
 }
