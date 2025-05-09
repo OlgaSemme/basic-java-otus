@@ -20,16 +20,7 @@ public class App {
         String fileName = scanner.nextLine();
         File newFile = new File(fileName);
         if (newFile.exists()) {
-            try (FileInputStream in = new FileInputStream(fileName)) {
-                byte[] buf = new byte[8192];
-                int n = in.read(buf);
-                do {
-                    System.out.print(new String(buf, 0, n));
-                    n = in.read(buf);
-                } while (n > 0);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            readFile(fileName);
             Scanner newScanner = new Scanner(System.in);
             System.out.println(" \n" + "Введите строку для записи в файл");
             String newString = " \n" + scanner.nextLine();
@@ -39,20 +30,25 @@ public class App {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            try (FileInputStream in = new FileInputStream(fileName)) {
-                byte[] buf = new byte[8192];
-                int n = in.read(buf);
-                do {
-                    System.out.print(new String(buf, 0, n));
-                    n = in.read(buf);
-                } while (n > 0);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            readFile(fileName);
 
         } else {
             System.out.println("Такой файл отсутствует");
             main(args);
+        }
+    }
+
+    public static void readFile(String name) {
+
+        try (FileInputStream in = new FileInputStream(name)) {
+            byte[] buf = new byte[8192];
+            int n = in.read(buf);
+            do {
+                System.out.print(new String(buf, 0, n));
+                n = in.read(buf);
+            } while (n > 0);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
