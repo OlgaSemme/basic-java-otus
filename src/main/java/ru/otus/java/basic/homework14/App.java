@@ -3,7 +3,7 @@ package ru.otus.java.basic.homework14;
 public class App {
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         method1();
         method2();
@@ -25,7 +25,7 @@ public class App {
         System.out.println("Время выполнения в мс -  " + timeElapsed);
     }
 
-    public static void method2() {
+    public static void method2() throws InterruptedException {
         double[] arr = new double[100000000];
         long startTime = System.currentTimeMillis();
 
@@ -36,13 +36,13 @@ public class App {
             }
         });
         Thread thread2 = new Thread(() -> {
-            for (int i = arr.length / 4; i <  arr.length / 2   ; i++) {
+            for (int i = arr.length / 4; i < arr.length / 2; i++) {
                 double current = 1.0 * i;
                 arr[i] = 1.14 * Math.cos(current) * Math.sin(current * 0.2) * Math.cos(current / 1.2);
             }
         });
         Thread thread3 = new Thread(() -> {
-            for (int i = arr.length / 2; i <  arr.length / 4 * 3; i++) {
+            for (int i = arr.length / 2; i < arr.length / 4 * 3; i++) {
                 double current = 1.0 * i;
                 arr[i] = 1.14 * Math.cos(current) * Math.sin(current * 0.2) * Math.cos(current / 1.2);
             }
@@ -58,6 +58,10 @@ public class App {
         thread2.start();
         thread3.start();
         thread4.start();
+        thread1.join();
+        thread2.join();
+        thread3.join();
+        thread4.join();
 
         long endTime = System.currentTimeMillis();
 
@@ -66,6 +70,8 @@ public class App {
     }
 
 }
+
+
 
 
 
